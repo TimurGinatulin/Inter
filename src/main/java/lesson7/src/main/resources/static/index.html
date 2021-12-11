@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
+
+    <title>Students</title>
+</head>
+<script src="index.js"></script>
+<body>
+<div ng-controller="mainController">
+    <div id="createStudent">
+        <form class="row g-3">
+            <div class="col-auto">
+                <input type="text" class="form-control" id="new_name" placeholder="Name">
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control" id="new_mark" placeholder="Mark">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3" ng-click="add()">Add</button>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <div>
+        <h3>Students </h3>
+        <table class="table table-hover" cellpadding="0" cellspacing="0">
+            <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Mark</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="s in students">
+                <td>{{s.id}}</td>
+                <td>{{s.name}}</td>
+                <td>
+                    <div id="updateMark">
+                        <form class="row g-3">
+                            <div class="col-auto">
+                                <input type="text" class="form-control" id={{s.id}} placeholder={{s.mark}}>
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary mb-3" ng-click="update(s.id,s.name)">up</button>
+                            </div>
+                        </form>
+                    </div>
+                </td>
+                <td>
+                    <button class="btn btn-primary" ng-click="deleteStudent(s.id)">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
