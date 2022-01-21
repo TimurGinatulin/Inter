@@ -24,8 +24,8 @@ public class StudentService {
         return repository.findById(id).orElse(new Student(-1, "non", "non"));
     }
 
-    public Student addStudent(StudentDto student) {
-        return repository.save(new Student(student));
+    public Student addStudent(Student student) {
+        return repository.save(student);
     }
 
     public Student updateStudent(Student student) {

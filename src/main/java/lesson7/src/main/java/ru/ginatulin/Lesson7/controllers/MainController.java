@@ -9,7 +9,7 @@ import ru.ginatulin.Lesson7.services.StudentService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api")
 @AllArgsConstructor
 public class MainController {
     private StudentService service;
@@ -25,7 +25,7 @@ public class MainController {
     }
 
     @PostMapping("/add")
-    public Student addStudent(@RequestBody StudentDto student) {
+    public Student addStudent(@RequestBody Student student) {
         return service.addStudent(student);
     }
 
